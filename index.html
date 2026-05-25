@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giesen W6A vs Probat UG22 — 烘豆機規格比較</title>
+    <style>
+        :root {
+            --bg: #0b1120;
+            --card: #151d30;
+            --primary: #0d1526;
+            --gold: #d4a853;
+            --accent: #e94560;
+            --teal: #2ec4b6;
+            --brown: #8B6914;
+            --text: #e8e8e8;
+            --muted: #7a8ba8;
+            --border: #1e2d4a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+
+        .hero {
+            background: linear-gradient(135deg, #1a0e00 0%, #2d1a05 40%, #151d30 100%);
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+        }
+        .hero h1 { font-size: 2em; color: var(--gold); letter-spacing: 2px; margin-bottom: 6px; }
+        .hero .sub { font-size: 1.1em; color: var(--text); margin-bottom: 4px; }
+        .hero .date { margin-top: 10px; color: var(--muted); font-size: 0.88em; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 30px 20px; }
+
+        section {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+        section h2 {
+            color: var(--gold);
+            font-size: 1.25em;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92em;
+        }
+        th {
+            background: var(--primary);
+            color: var(--gold);
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+        }
+        tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+        td:first-child { color: var(--muted); font-weight: 500; white-space: nowrap; }
+
+        .brand-giesen { color: #4ecdc4; font-weight: 700; }
+        .brand-probat { color: #ff6b6b; font-weight: 700; }
+
+        .highlight { background: rgba(212,168,83,0.08); }
+        .na { color: #555; font-style: italic; }
+
+        .vs-header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 24px;
+            background: var(--card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .vs-brand {
+            text-align: center;
+            flex: 1;
+        }
+        .vs-brand .name { font-size: 1.5em; font-weight: 700; margin-bottom: 4px; }
+        .vs-brand .cap { font-size: 0.95em; color: var(--muted); }
+        .vs-divider {
+            font-size: 2em;
+            font-weight: 900;
+            color: var(--gold);
+            padding: 0 20px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .summary-card {
+            background: var(--primary);
+            border-radius: 10px;
+            padding: 18px;
+            border: 1px solid var(--border);
+        }
+        .summary-card h3 {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        .summary-card.giesen h3 { color: #4ecdc4; }
+        .summary-card.probat h3 { color: #ff6b6b; }
+        .summary-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .summary-card li {
+            padding: 4px 0;
+            font-size: 0.9em;
+            color: var(--muted);
+        }
+        .summary-card li::before {
+            content: '•';
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        .note {
+            background: rgba(212,168,83,0.07);
+            border-left: 4px solid var(--gold);
+            padding: 12px 16px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.88em;
+            color: var(--muted);
+        }
+
+        .size-compare {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 60px;
+            padding: 30px 20px;
+            margin: 16px 0;
+        }
+        .size-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .size-rect {
+            border: 2px solid;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+        .size-rect.giesen {
+            width: 80px;
+            height: 120px;
+            border-color: #4ecdc4;
+            color: #4ecdc4;
+        }
+        .size-rect.probat {
+            width: 160px;
+            height: 168px;
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+        }
+        .size-label {
+            margin-top: 8px;
+            font-size: 0.82em;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        footer {
+            text-align: center; padding: 24px; color: var(--muted); font-size: 0.82em;
+            border-top: 1px solid var(--border);
+        }
+        footer a { color: var(--gold); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.5em; }
+            .vs-header { flex-direction: column; gap: 10px; }
+            .vs-divider { padding: 0; }
+            .summary-grid { grid-template-columns: 1fr; }
+            table { font-size: 0.82em; }
+            td, th { padding: 8px 10px; }
+            .size-compare { gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>GIESEN W6A vs PROBAT UG22</h1>
+    <div class="sub">烘豆機規格完整比較</div>
+    <div class="date">整理日期：2026 年 5 月 25 日</div>
+</div>
+
+<div class="container">
+
+    <div class="vs-header">
+        <div class="vs-brand">
+            <div class="name brand-giesen">Giesen W6A</div>
+            <div class="cap">6 kg ｜ 精品小批量</div>
+        </div>
+        <div class="vs-divider">VS</div>
+        <div class="vs-brand">
+            <div class="name brand-probat">Probat UG22</div>
+            <div class="cap">22 kg ｜ 中型量產</div>
+        </div>
+    </div>
+
+    <!-- 基本資訊 -->
+    <section>
+        <h2>基本資訊</h2>
+        <table>
+            <tr>
+                <th style="width:25%;">項目</th>
+                <th style="width:37.5%;"><span class="brand-giesen">Giesen W6A</span></th>
+                <th style="width:37.5%;"><span class="brand-probat">Probat UG22</span></th>
+            </tr>
+            <tr>
+                <td>製造商</td>
+                <td>Giesen Coffee Roasters</td>
+                <td>Probat SE</td>
+            </tr>
+            <tr>
+                <td>產地</td>
+                <td>荷蘭 (Netherlands)</td>
+                <td>德國 (Germany)</td>
+            </tr>
+            <tr>
+                <td>類型</td>
+                <td>半熱風滾筒式</td>
+                <td>半熱風滾筒式</td>
+            </tr>
+            <tr>
+                <td>適用品項</td>
+                <td>咖啡</td>
+                <td>咖啡、可可、堅果</td>
+            </tr>
+            <tr>
+                <td>控制方式</td>
+                <td>觸控螢幕（標配）</td>
+                <td>手動 / 可選半自動觸控面板</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- 尺寸與重量 -->
+    <section>
+        <h2>尺寸與重量</h2>
+        <table>
+            <tr>
+                <th style="width:25%;">項目</th>
+                <th style="width:37.5%;"><span class="brand-giesen">Giesen W6A</span></th>
+                <th style="width:37.5%;"><span class="brand-probat">Probat UG22</span></th>
+            </tr>
+            <tr class="highlight">
+                <td>長 (L)</td>
+                <td>1,427 mm</td>
+                <td>2,550 mm</td>
+            </tr>
+            <tr class="highlight">
+                <td>寬 (W)</td>
+                <td>723 mm</td>
+                <td>1,414 mm</td>
+            </tr>
+            <tr class="highlight">
+                <td>高 (H)</td>
+                <td>1,705 mm</td>
+                <td>2,380 mm</td>
+            </tr>
+            <tr>
+                <td>佔地面積</td>
+                <td>約 1.03 m²</td>
+                <td>約 3.60 m²</td>
+            </tr>
+            <tr>
+                <td>體積</td>
+                <td>約 1.76 m³</td>
+                <td>約 8.58 m³</td>
+            </tr>
+            <tr class="highlight">
+                <td>重量</td>
+                <td>485 kg</td>
+                <td>約 900 kg</td>
+            </tr>
+            <tr>
+                <td>所需空間</td>
+                <td>—</td>
+                <td>10–16 m²（建議層高 3.0 m）</td>
+            </tr>
+        </table>
+
+        <div class="size-compare">
+            <div class="size-box">
+                <div class="size-rect giesen">W6A</div>
+                <div class="size-label">1427 x 723 mm<br>H: 1705 mm<br>485 kg</div>
+            </div>
+            <div class="size-box">
+                <div class="size-rect probat">UG22</div>
+                <div class="size-label">2550 x 1414 mm<br>H: 2380 mm<br>~900 kg</div>
+            </div>
+        </div>
+
+        <div class="note">
+            UG22 的佔地面積是 W6A 的 <strong>3.5 倍</strong>，體積約 <strong>4.9 倍</strong>，重量約 <strong>1.85 倍</strong>。安裝前務必確認場地樓板承重與進出動線。
+        </div>
+    </section>
+
+    <!-- 烘焙能力 -->
+    <section>
+        <h2>烘焙能力</h2>
+        <table>
+            <tr>
+                <th style="width:25%;">項目</th>
+                <th style="width:37.5%;"><span class="brand-giesen">Giesen W6A</span></th>
+                <th style="width:37.5%;"><span class="brand-probat">Probat UG22</span></th>
+            </tr>
+            <tr>
+                <td>最小批次</td>
+                <td>3 kg</td>
+                <td>7.5–8 kg</td>
+            </tr>
+            <tr class="highlight">
+                <td>最大批次</td>
+                <td>6 kg</td>
+                <td>22–25 kg</td>
+            </tr>
+            <tr class="highlight">
+                <td>每小時產能</td>
+                <td>最高 24 kg/h</td>
+                <td>50–100 kg/h</td>
+            </tr>
+            <tr>
+                <td>每小時批次數</td>
+                <td>約 4 批</td>
+                <td>約 4 批</td>
+            </tr>
+            <tr>
+                <td>烘焙時間</td>
+                <td>—</td>
+                <td>10–20 分鐘</td>
+            </tr>
+            <tr>
+                <td>每日產能估算</td>
+                <td>~100–190 kg（8hr）</td>
+                <td>~400–800 kg（8hr）</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- 電力規格 -->
+    <section>
+        <h2>電力規格</h2>
+        <table>
+            <tr>
+                <th style="width:25%;">項目</th>
+                <th style="width:37.5%;"><span class="brand-giesen">Giesen W6A</span></th>
+                <th style="width:37.5%;"><span class="brand-probat">Probat UG22</span></th>
+            </tr>
+            <tr>
+                <td>電壓</td>
+                <td>230V AC（單相 1L+N+PE）</td>
+                <td>208V（三相）</td>
+            </tr>
+            <tr>
+                <td>電流 / 保險絲</td>
+                <td>16A</td>
+                <td>8A</td>
+            </tr>
+            <tr>
+                <td>最大功率</td>
+                <td>1.7 kW</td>
+                <td>—</td>
+            </tr>
+        </table>
+        <div class="note">
+            W6A 使用單相電即可，一般商用空間即可安裝。UG22 需要三相電，安裝前需確認場地電力配置。
+        </div>
+    </section>
+
+    <!-- 瓦斯規格 -->
+    <section>
+        <h2>瓦斯規格</h2>
+        <table>
+            <tr>
+                <th style="width:25%;">項目</th>
+                <th style="width:37.5%;"><span class="brand-giesen">Giesen W6A</span></th>
+                <th style="width:37.5%;"><span class="brand-probat">Probat UG22</span></th>
+            </tr>
+            <tr>
+                <td>燃料類型</td>
+                <td>天然氣 / 液化石油氣</td>
+                <td>天然氣 / 液化石油氣 / 氫氣</td>
+            </tr>
+            <tr>
+                <td>瓦斯接頭</td>
+                <td>G 3/8"</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>天然氣耗量 (G20)</td>
+                <td>1.8 m³/h</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>液化氣耗量 (G30)</td>
+                <td>0.7 m³/h</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>進氣壓力 (G20)</td>
+                <td>25 mbar</td>
+                <td>—</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- 操作參數 -->
+    <section>
+        <h2>操作與控制</h2>
+        <table>
+            <tr>
+                <th style="width:25%;">項目</th>
+                <th style="width:37.5%;"><span class="brand-giesen">Giesen W6A</span></th>
+                <th style="width:37.5%;"><span class="brand-probat">Probat UG22</span></th>
+            </tr>
+            <tr>
+                <td>滾筒轉速（VFD 頻率）</td>
+                <td>36–51 Hz（預設 46 Hz）<br><span style="font-size:0.82em;color:var(--muted);">※ 為變頻器頻率，實際滾筒 RPM 需經減速比換算</span></td>
+                <td>變頻可調</td>
+            </tr>
+            <tr>
+                <td>溫度範圍</td>
+                <td>100–250°C（預設 200°C）</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>溫度測量</td>
+                <td>豆溫探針</td>
+                <td>進風溫 / 豆溫 / 排氣溫（三段）</td>
+            </tr>
+            <tr>
+                <td>負壓範圍</td>
+                <td>80–150 Pa（預設 110 Pa）</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>風量控制</td>
+                <td>—</td>
+                <td>變頻器調整烘焙風量</td>
+            </tr>
+            <tr>
+                <td>驅動系統</td>
+                <td>—</td>
+                <td>滾筒 / 攪拌 / 烘焙風扇 / 冷卻風扇 各自獨立驅動</td>
+            </tr>
+            <tr>
+                <td>噪音</td>
+                <td>70 dB(A)</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>排氣管徑</td>
+                <td>Ø 150 mm</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>認證</td>
+                <td>CE（可選 UL、AGA）</td>
+                <td>—</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- 總結 -->
+    <section>
+        <h2>總結比較</h2>
+        <div class="summary-grid">
+            <div class="summary-card giesen">
+                <h3>Giesen W6A 適合</h3>
+                <ul>
+                    <li>精品咖啡小批量烘焙</li>
+                    <li>每日產量 200 kg 以下</li>
+                    <li>空間有限的烘焙室</li>
+                    <li>單相電力環境（230V）</li>
+                    <li>重視觸控螢幕操控體驗</li>
+                    <li>微批次測試與配方開發</li>
+                </ul>
+            </div>
+            <div class="summary-card probat">
+                <h3>Probat UG22 適合</h3>
+                <ul>
+                    <li>中型量產烘焙工廠</li>
+                    <li>每日產量 400–800 kg</li>
+                    <li>有獨立烘焙空間（10 m²+）</li>
+                    <li>三相電力環境（208V）</li>
+                    <li>需要多品項烘焙（咖啡/可可/堅果）</li>
+                    <li>追求德國工藝與長期耐用</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="note" style="margin-top: 20px;">
+            <strong>關鍵數據差異：</strong><br>
+            ・產能：UG22 是 W6A 的 <strong>2–4 倍</strong>（50-100 vs 24 kg/h）<br>
+            ・體積：UG22 是 W6A 的 <strong>4.9 倍</strong><br>
+            ・重量：UG22 是 W6A 的 <strong>1.85 倍</strong>（900 vs 485 kg）<br>
+            ・Probat 部分規格未公開（標「—」），建議向台灣代理商索取完整 Data Sheet
+        </div>
+    </section>
+
+    <!-- 資料來源 -->
+    <section>
+        <h2>資料來源</h2>
+        <table>
+            <tr>
+                <th>來源</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td><a href="https://giesen.com/w6a" style="color:var(--teal);">giesen.com/w6a</a></td>
+                <td>Giesen 官方 W6A 規格頁面</td>
+            </tr>
+            <tr>
+                <td><a href="https://www.probat.com/en/products/shop-roaster/ug-series/" style="color:var(--teal);">probat.com — UG Series</a></td>
+                <td>Probat 官方 UG 系列頁面</td>
+            </tr>
+            <tr>
+                <td><a href="https://coffeetec.com/products/ug22-probat-roaster" style="color:var(--teal);">CoffeeTec — UG22</a></td>
+                <td>CoffeeTec 經銷商規格資料</td>
+            </tr>
+            <tr>
+                <td><a href="https://www.exapro.com/sp/probat-ug22-22134/" style="color:var(--teal);">Exapro — UG22</a></td>
+                <td>Exapro 二手機械平台（尺寸/重量數據）</td>
+            </tr>
+        </table>
+    </section>
+
+</div>
+
+<footer>
+    Giesen W6A vs Probat UG22 烘豆機規格比較<br>
+    整理日期：2026 年 5 月 25 日
+</footer>
+
+</body>
+</html>
